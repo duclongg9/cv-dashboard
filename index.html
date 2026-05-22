@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Phạm Đức Long - Software Engineer & Project Manager</title>
+    <!-- Tailwind CSS for modern layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            card: '#121216',
+                            accent: '#00f2ad', // Emerald Green
+                            accentHover: '#00cfa4',
+                            dimText: '#94a3b8',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CSS Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e1e24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2ad;
+        }
+
+        .cv-item, .skill-category-block {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Print Media Styles to convert Dark Mode to perfectly formatted Light Mode CV */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #111827 !important;
+                font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+                font-size: 8.5pt !important;
+                line-height: 1.35 !important;
+            }
+            .no-print, [class*="no-print"] {
+                display: none !important;
+            }
+            .print-bg-white {
+                background-color: #ffffff !important;
+                background: #ffffff !important;
+                border: none !important;
+                box-shadow: none !important;
+                overflow: visible !important;
+            }
+            .print-text-dark {
+                color: #0f172a !important;
+            }
+            .print-text-gray {
+                color: #374151 !important;
+            }
+            .print-border-gray {
+                border-color: #e2e8f0 !important;
+            }
+            .print-accent-text {
+                color: #0d9488 !important;
+            }
+            .skill-tag {
+                background-color: #f0fdf4 !important;
+                color: #064e3b !important;
+                border: 1px solid #a7f3d0 !important;
+                padding: 1px 6px !important;
+                font-size: 7.5pt !important;
+            }
+            .timeline-dot {
+                border-color: #0d9488 !important;
+                background-color: #0d9488 !important;
+                width: 8px !important;
+                height: 8px !important;
+                left: 4px !important;
+                top: 6px !important;
+            }
+            .timeline-line::before {
+                left: 7px !important;
+                background: #cbd5e1 !important;
+            }
+            /* Prevent page break splitting of blocks, but allow sections themselves to break */
+            .cv-item, .skill-category-block, .relative.pl-4 {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            /* Remove margins and roundings for page layout */
+            main {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                padding-top: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .rounded-3xl {
+                border-radius: 0 !important;
+            }
+            .shadow-2xl {
+                box-shadow: none !important;
+            }
+            .border {
+                border-width: 0 !important;
+            }
+            .border-b {
+                border-bottom-width: 1px !important;
+                border-bottom-color: #cbd5e1 !important;
+                border-style: solid !important;
+            }
+            .border-r {
+                border-right-width: 1px !important;
+                border-right-color: #e2e8f0 !important;
+                border-style: solid !important;
+            }
+            /* Header alignment and photo layout */
+            section.p-8.md\:p-12 {
+                background-image: none !important;
+                background-color: #ffffff !important;
+                display: block !important;
+                overflow: visible !important;
+            }
+            section.p-8.md\:p-12 > div.flex:not(.no-print) {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                gap: 20px !important;
+            }
+            section.p-8.md\:p-12 > div.flex > div.text-center {
+                text-align: left !important;
+            }
+            section.p-8.md\:p-12 > div.flex > div.text-center div.justify-center {
+                justify-content: flex-start !important;
+            }
+            /* Compact section headings */
+            h2 {
+                font-size: 9pt !important;
+                padding-bottom: 3px !important;
+                margin-bottom: 5px !important;
+                letter-spacing: 0.06em !important;
+            }
+            h3 {
+                font-size: 9.5pt !important;
+                margin-bottom: 2px !important;
+            }
+            /* Compact list spacing */
+            ul {
+                margin-top: 2px !important;
+            }
+            ul li {
+                margin-bottom: 2px !important;
+                font-size: 8.5pt !important;
+            }
+            /* Compact section spacing */
+            section, .mb-10 {
+                margin-bottom: 6px !important;
+            }
+            .mb-12 {
+                margin-bottom: 8px !important;
+            }
+            .space-y-8 > * + * {
+                margin-top: 8px !important;
+            }
+            .space-y-6 > * + * {
+                margin-top: 4px !important;
+            }
+            .space-y-3 > * + * {
+                margin-top: 3px !important;
+            }
+            /* Flex layout for print columns to ensure proper content flow */
+            .lg\:grid-cols-12 {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                overflow: visible !important;
+            }
+            .lg\:col-span-4 {
+                width: 32% !important;
+                flex-shrink: 0 !important;
+                flex-grow: 0 !important;
+                padding: 12px 14px !important;
+                background-color: #f8fafc !important;
+                overflow: visible !important;
+            }
+            .lg\:col-span-8 {
+                width: 68% !important;
+                flex-shrink: 0 !important;
+                flex-grow: 0 !important;
+                padding: 12px 16px !important;
+                background-color: #ffffff !important;
+                overflow: visible !important;
+            }
+            /* Compact project cards */
+            .cv-item.p-5 {
+                padding: 8px !important;
+            }
+            /* Header section compact */
+            .p-8, .md\:p-12 {
+                padding: 12px 16px !important;
+            }
+            /* Language bars */
+            .h-1\.5 {
+                height: 4px !important;
+            }
+            /* Adjust margins for printing page to fit optimal A4 sizing */
+            @page {
+                size: A4 portrait;
+                margin: 0.5cm 0.6cm;
+            }
+        }
+
+        /* Timeline connector */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            bottom: 0;
+            left: 7px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        @media print {
+            .timeline-line::before {
+                background: #cbd5e1 !important;
+            }
+        }
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased min-h-screen pb-16 transition-colors duration-300">
+
+    <!-- LOGIN VIEW -->
+    <div id="login-view" class="min-h-screen flex items-center justify-center bg-brand-dark px-4 py-12 relative overflow-hidden hidden">
+        <div class="absolute w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] -top-40 -left-40"></div>
+        <div class="absolute w-[500px] h-[500px] bg-brand-accent/5 rounded-full blur-[120px] -bottom-40 -right-40"></div>
+        
+        <div class="bg-brand-card border border-brand-border rounded-3xl p-8 md:p-10 max-w-md w-full shadow-2xl relative z-10 backdrop-blur-xl bg-opacity-70">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-accent/10 text-brand-accent text-3xl mb-4 border border-brand-accent/20">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-display tracking-wide uppercase text-white">CV Management</h2>
+                <p class="text-sm text-brand-dimText mt-1">Đăng nhập tài khoản quản trị</p>
+            </div>
+            
+            <form id="login-form" class="space-y-6" onsubmit="handleLogin(event)">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dimText mb-2">Email</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-brand-dimText">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <input type="email" id="login-email" required class="w-full bg-black/40 border border-brand-border rounded-xl py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors" placeholder="email@example.com">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dimText mb-2">Mật khẩu</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-brand-dimText">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <input type="password" id="login-password" required class="w-full bg-black/40 border border-brand-border rounded-xl py-3 pl-10 pr-10 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors" placeholder="••••••••">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-brand-dimText hover:text-white">
+                            <i id="password-toggle-icon" class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="login-error" class="text-red-500 text-xs hidden flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 p-3 rounded-lg">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>Tài khoản hoặc mật khẩu không chính xác!</span>
+                </div>
+                
+                <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-brand-accent/10 hover:shadow-brand-accent/20 hover:scale-[1.02]">
+                    ĐĂNG NHẬP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD VIEW -->
+    <div id="dashboard-view" class="min-h-screen bg-brand-dark px-4 py-8 md:py-12 relative overflow-hidden hidden">
+        <div class="absolute w-[800px] h-[800px] bg-brand-accent/5 rounded-full blur-[150px] -top-96 -left-96"></div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <!-- Header bar -->
+            <div class="bg-brand-card border border-brand-border rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-8 shadow-xl">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 text-brand-accent flex items-center justify-center text-2xl border border-brand-accent/20">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold font-display uppercase tracking-wider text-white">Kho lưu trữ CV</h1>
+                        <p class="text-xs text-brand-dimText mt-0.5">Tài khoản: <span class="text-brand-accent font-semibold">duclongg9@gmail.com</span></p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="document.getElementById('import-file-input').click()" class="flex items-center gap-2 bg-[#1a1a24] hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 text-brand-dimText hover:text-white px-4 py-2.5 rounded-xl transition text-sm cursor-pointer">
+                        <i class="fa-solid fa-file-import"></i>
+                        <span>Nhập Database</span>
+                    </button>
+                    <input type="file" id="import-file-input" class="hidden" accept=".json" onchange="importJSONDatabase(event)">
+                    
+                    <button onclick="exportJSONDatabase()" class="flex items-center gap-2 bg-[#1a1a24] hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 text-brand-dimText hover:text-white px-4 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-file-export"></i>
+                        <span>Xuất Database</span>
+                    </button>
+                    <button onclick="handleLogout()" class="flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 hover:text-red-300 px-4 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Đăng xuất</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Controls bar -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+                <!-- Search -->
+                <div class="relative w-full sm:max-w-md">
+                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-brand-dimText">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="dashboard-search" oninput="renderCVGrid()" class="w-full bg-brand-card border border-brand-border rounded-xl py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors" placeholder="Tìm kiếm theo tiêu đề, vai trò...">
+                </div>
+                
+                <!-- Action Buttons -->
+                <button onclick="createNewCV()" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-md shadow-brand-accent/10 hover:scale-[1.02]">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span>TẠO CV MỚI</span>
+                </button>
+            </div>
+            
+            <!-- CV Grid list -->
+            <div id="cv-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards will render here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CV VIEW / EDITOR -->
+    <div id="cv-view" class="hidden">
+        <!-- TOP TOOLBAR (No print) -->
+        <header class="max-w-6xl mx-auto px-4 mt-6 no-print">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-4 flex flex-col lg:flex-row items-center justify-between gap-4 shadow-xl">
+                <div class="flex items-center gap-3">
+                    <button onclick="goBackToDashboard()" class="flex items-center gap-2 bg-[#1a1a24] hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 text-brand-dimText hover:text-white px-3.5 py-2 rounded-xl transition text-xs font-semibold">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    
+                    <button id="save-cv-btn" onclick="saveCurrentCV()" class="edit-controls flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold px-3.5 py-2 rounded-xl transition text-xs shadow-md shadow-brand-accent/10">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span>Lưu thay đổi</span>
+                    </button>
+                    
+                    <button id="edit-mode-btn" onclick="toggleEditMode()" class="flex items-center gap-2 bg-[#1a1a24] hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 text-brand-dimText hover:text-white px-3.5 py-2 rounded-xl transition text-xs font-semibold">
+                        <i class="fa-solid fa-pen-to-square text-brand-accent"></i>
+                        <span id="edit-mode-text">Chỉnh sửa</span>
+                    </button>
+                </div>
+                
+                <div class="flex flex-wrap items-center justify-end gap-3 w-full lg:w-auto">
+                    <!-- Highlight skill interactive filter buttons -->
+                    <span class="text-xs text-brand-dimText mr-1 hidden md:inline">Lọc thế mạnh:</span>
+                    <div class="flex flex-wrap gap-1.5 mr-2">
+                        <button onclick="filterCV('all')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-brand-accent text-brand-dark transition-all duration-200">
+                            Tất cả
+                        </button>
+                        <button onclick="filterCV('tech')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1a1a24] text-brand-dimText hover:text-white transition-all duration-200">
+                            Code/Dev
+                        </button>
+                        <button onclick="filterCV('mgmt')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1a1a24] text-brand-dimText hover:text-white transition-all duration-200">
+                            Quản lý
+                        </button>
+                        <button onclick="filterCV('ops')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1a1a24] text-brand-dimText hover:text-white transition-all duration-200">
+                            Vận hành
+                        </button>
+                    </div>
+                    
+                    <!-- Export stand-alone HTML button -->
+                    <button onclick="exportStandaloneHTML()" class="flex items-center gap-2 bg-[#1a1a24] hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 text-brand-dimText hover:text-white px-3.5 py-2 rounded-xl transition text-xs font-semibold">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Tải HTML độc lập</span>
+                    </button>
+
+                    <!-- Print Button -->
+                    <button onclick="window.print()" class="flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-semibold px-4 py-2 rounded-xl transition-all duration-200 text-sm shadow-md shadow-brand-accent/10">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Tải PDF / In CV</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- CV MAIN CONTAINER -->
+        <main class="max-w-6xl mx-auto px-4 mt-8 print-bg-white print-text-dark">
+            <div class="bg-brand-card border border-brand-border rounded-3xl overflow-hidden shadow-2xl print-bg-white print-text-dark print-border-gray">
+                
+                <!-- CV HEADER SECTION -->
+                <section class="p-8 md:p-12 bg-gradient-to-r from-black via-brand-card to-black border-b border-brand-border flex flex-col md:flex-row items-start md:items-center justify-between gap-8 print-bg-white print-text-dark print-border-gray relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#00f2ad_1px,transparent_1px)] [background-size:16px_16px] no-print"></div>
+                    
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10 flex-grow w-full">
+                        <!-- Photo Upload Container -->
+                        <div id="avatarContainer" class="relative group shrink-0 print:hidden">
+                            <input type="file" id="avatarInput" accept="image/*" class="hidden" onchange="uploadAvatar(event)">
+                            <div onclick="document.getElementById('avatarInput').click()" class="w-28 h-36 md:w-32 md:h-40 rounded-2xl border-2 border-dashed border-brand-border group-hover:border-brand-accent hover:bg-brand-card/50 overflow-hidden flex items-center justify-center cursor-pointer transition-all duration-300 print:w-[3cm] print:h-[4cm] print:min-w-[3cm] print:min-h-[4cm] print:border-slate-300 print:border-solid relative bg-brand-dark/20 aspect-[3/4]">
+                                <img id="avatarImage" src="" class="w-full h-full object-cover hidden">
+                                <div id="avatarPlaceholder" class="flex flex-col items-center justify-center text-center p-2 text-brand-dimText group-hover:text-white transition-colors duration-200">
+                                    <i class="fa-solid fa-camera text-xl mb-1 text-brand-accent/70 group-hover:text-brand-accent print:text-slate-400"></i>
+                                    <span class="text-[10px] uppercase font-bold tracking-wider font-display print:hidden">Thêm ảnh</span>
+                                    <span class="text-[9px] uppercase font-bold tracking-wider font-display hidden print:inline text-slate-400">Ảnh 3x4</span>
+                                </div>
+                                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-200 no-print">
+                                    <i class="fa-solid fa-pen-to-square text-white text-base"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Info -->
+                        <div class="text-center sm:text-left flex-grow">
+                            <span class="text-brand-accent font-display font-semibold tracking-wider uppercase text-sm print-accent-text">HỒ SƠ NĂNG LỰC CHUYÊN NGHIỆP</span>
+                            <h1 id="cv-name" class="editable-field text-3xl md:text-5xl font-extrabold tracking-tight font-display mt-2 print-text-dark text-white">
+                                PHẠM ĐỨC LONG
+                            </h1>
+                            <p id="cv-role" class="editable-field text-base md:text-xl text-brand-dimText font-medium mt-1 print-text-gray">
+                                Software Engineer | Project Manager | E-commerce & Operations
+                            </p>
+                            
+                            <!-- Contact tags -->
+                            <div class="flex flex-wrap justify-center sm:justify-start gap-y-2 gap-x-6 mt-4 text-sm text-brand-dimText print-text-gray">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-location-dot text-brand-accent print-accent-text"></i>
+                                    <span id="cv-location" class="editable-field text-brand-dimText print-text-gray">Hà Nội, Việt Nam</span>
+                                </span>
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-envelope text-brand-accent print-accent-text"></i>
+                                    <a id="cv-email" href="mailto:duclongg9@gmail.com" class="editable-field hover:text-white transition">duclongg9@gmail.com</a>
+                                </span>
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-phone text-brand-accent print-accent-text"></i>
+                                    <span id="cv-phone" class="editable-field text-brand-dimText print-text-gray">0385 189 399</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital stamp/accent -->
+                    <div class="flex flex-col items-center justify-center p-4 bg-brand-dark border border-brand-border rounded-2xl no-print shrink-0 md:self-center">
+                        <div class="text-xs text-brand-dimText tracking-wider uppercase">Tốc độ làm việc</div>
+                        <div class="text-2xl font-bold font-display text-brand-accent mt-1">ĐA NHIỆM</div>
+                        <div class="text-[10px] text-brand-dimText mt-1">Tech • PM • E-com</div>
+                    </div>
+                </section>
+
+                <!-- TWO-COLUMN CONTENT GRID -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 print-bg-white print-text-dark">
+                    
+                    <!-- LEFT COLUMN (Smaller - Info, Education, Skills) -->
+                    <div class="lg:col-span-4 bg-brand-dark/50 p-8 md:p-10 border-r border-brand-border print-bg-white print-text-dark print-border-gray">
+                        
+                        <!-- TÓM TẮT CHUYÊN MÔN -->
+                        <div class="mb-10">
+                            <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-4 print-accent-text print-border-gray">
+                                Tóm tắt chuyên môn
+                            </h2>
+                            <p id="cv-summary" class="editable-field text-sm text-brand-dimText leading-relaxed text-justify print-text-gray">
+                                Kỹ sư phần mềm và Quản lý dự án đa năng với hơn 4 năm nền tảng kỹ thuật vững chắc...
+                            </p>
+                        </div>
+
+                        <!-- KỸ NĂNG & CÔNG CỤ -->
+                        <div class="mb-10">
+                            <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-5 print-accent-text print-border-gray">
+                                Kỹ năng & Công cụ
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <!-- Dev Skill Block -->
+                                <div class="skill-category-block" data-category="tech">
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                        <i class="fa-solid fa-code text-brand-accent print-accent-text"></i>
+                                        <span>Kỹ thuật phần mềm</span>
+                                        <button onclick="addSkillTag('tech')" class="edit-controls text-brand-accent hover:text-white ml-1 text-[11px] no-print">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                        </button>
+                                    </h3>
+                                    <div id="skills-tech" class="flex flex-wrap gap-1.5"></div>
+                                </div>
+
+                                <!-- Management Skill Block -->
+                                <div class="skill-category-block" data-category="mgmt">
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                        <i class="fa-solid fa-diagram-project text-brand-accent print-accent-text"></i>
+                                        <span>Quản lý & Điều phối</span>
+                                        <button onclick="addSkillTag('mgmt')" class="edit-controls text-brand-accent hover:text-white ml-1 text-[11px] no-print">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                        </button>
+                                    </h3>
+                                    <div id="skills-mgmt" class="flex flex-wrap gap-1.5"></div>
+                                </div>
+
+                                <!-- Ops Skill Block -->
+                                <div class="skill-category-block" data-category="ops">
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                        <i class="fa-solid fa-cart-flatbed text-brand-accent print-accent-text"></i>
+                                        <span>Vận hành & Truyền thông</span>
+                                        <button onclick="addSkillTag('ops')" class="edit-controls text-brand-accent hover:text-white ml-1 text-[11px] no-print">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                        </button>
+                                    </h3>
+                                    <div id="skills-ops" class="flex flex-wrap gap-1.5"></div>
+                                </div>
+
+                                <!-- AI Trend Block -->
+                                <div class="skill-category-block" data-category="tech">
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                        <i class="fa-solid fa-robot text-brand-accent print-accent-text"></i>
+                                        <span>Công nghệ xu hướng</span>
+                                        <button onclick="addSkillTag('trends')" class="edit-controls text-brand-accent hover:text-white ml-1 text-[11px] no-print">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                        </button>
+                                    </h3>
+                                    <div id="skills-trends" class="flex flex-wrap gap-1.5"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GIÁO DỤC -->
+                        <div class="mb-10">
+                            <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-4 print-accent-text print-border-gray">
+                                Giáo dục
+                                <button onclick="addEducationItem()" class="edit-controls text-brand-accent hover:text-white ml-1 text-[11px] no-print">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="education-list" class="space-y-6"></div>
+                        </div>
+
+                        <!-- NGOẠI NGỮ -->
+                        <div>
+                            <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-4 print-accent-text print-border-gray">
+                                Ngoại ngữ
+                                <button onclick="addLanguageItem()" class="edit-controls text-brand-accent hover:text-white ml-1 text-[11px] no-print">
+                                    <i class="fa-solid fa-circle-plus"></i>
+                                </button>
+                            </h2>
+                            <div id="languages-list" class="space-y-4"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN (Larger - Work Experience, Key Projects) -->
+                    <div class="lg:col-span-8 p-8 md:p-10 bg-brand-card print-bg-white print-text-dark">
+                        
+                        <!-- KINH NGHIỆM LÀM VIỆC -->
+                        <section class="mb-12">
+                            <h2 class="text-xl font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-6 print-accent-text print-border-gray flex items-center justify-between">
+                                <span>Kinh nghiệm làm việc</span>
+                                <button onclick="addExperienceItem()" class="edit-controls text-brand-accent hover:text-brand-accentHover font-semibold border border-dashed border-brand-accent/50 hover:border-brand-accent rounded-xl px-3 py-1.5 text-xs flex items-center gap-1.5 no-print">
+                                    <i class="fa-solid fa-plus-circle"></i>
+                                    <span>Thêm kinh nghiệm</span>
+                                </button>
+                            </h2>
+                            
+                            <div id="experience-list" class="space-y-8"></div>
+                        </section>
+
+                        <!-- DỰ ÁN TIÊU BIỂU -->
+                        <section>
+                            <h2 class="text-xl font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-6 print-accent-text print-border-gray flex items-center justify-between">
+                                <span>Dự án & Sản phẩm tiêu biểu</span>
+                                <button onclick="addProjectItem()" class="edit-controls text-brand-accent hover:text-brand-accentHover font-semibold border border-dashed border-brand-accent/50 hover:border-brand-accent rounded-xl px-3 py-1.5 text-xs flex items-center gap-1.5 no-print">
+                                    <i class="fa-solid fa-plus-circle"></i>
+                                    <span>Thêm dự án</span>
+                                </button>
+                            </h2>
+                            
+                            <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        </section>
+
+                    </div>
+
+                </div>
+
+                <!-- FOOTER SIGNATURE -->
+                <footer class="p-6 bg-brand-dark/80 border-t border-brand-border text-center text-xs text-brand-dimText print-bg-white print-text-gray print-border-gray relative overflow-hidden no-print">
+                    <p class="font-display tracking-widest uppercase">
+                        PHẠM ĐỨC LONG <span class="text-brand-accent print-accent-text">•</span> TƯ DUY HỆ THỐNG - ĐIỀU HÀNH ĐA NHIỆM
+                    </p>
+                    <p class="text-[10px] mt-1 text-gray-600 print-text-gray">Cam kết thông tin trung thực và tính sẵn sàng làm việc cao.</p>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- INTERACTIVE JS CODE (SPA Router, DB logic, Inline editing, Standalone HTML export) -->
+    <script>
+        // Default CV data template
+        const DEFAULT_CV_DATA = {
+            title: "CV - Software Engineer & PM",
+            name: "PHẠM ĐỨC LONG",
+            role: "Software Engineer | Project Manager | E-commerce & Operations",
+            location: "Hà Nội, Việt Nam",
+            email: "duclongg9@gmail.com",
+            phone: "0385 189 399",
+            summary: "Kỹ sư phần mềm và Quản lý dự án đa năng với hơn 4 năm nền tảng kỹ thuật vững chắc, có tư duy hệ thống và năng lực điều hành đa nhiệm xuất sắc. Sở hữu kinh nghiệm thực chiến phong phú từ lập trình Full-stack, tối ưu hạ tầng đám mây, cho đến quản lý truyền thông ngành du lịch nghỉ dưỡng và vận hành thương mại điện tử.",
+            skills: {
+                tech: ["Full-stack Dev", "PostgreSQL", "GitLab CI/CD", "Render Cloud", "Firewall & Security"],
+                mgmt: ["Agile/Scrum", "Jira Software", "Data Analysis", "SRS Documentation", "Team Leadership"],
+                ops: ["Shopee Ops", "Logistics (GHTK)", "Branding & Media", "Media Editing", "Hardware Repair"],
+                trends: ["Prompt Engineering", "AI Agent Architect"]
+            },
+            education: [
+                {
+                    school: "Đại học FPT Hà Nội",
+                    major: "Kỹ thuật phần mềm (Software Engineering)",
+                    period: "2021 - Hiện tại"
+                }
+            ],
+            languages: [
+                { name: "Tiếng Việt", level: "Bản xứ", percentage: 100, note: "" },
+                { name: "Tiếng Nhật", level: "Đang học tập sâu", percentage: 50, note: "Định hướng giao tiếp công việc và du lịch." }
+            ],
+            experiences: [
+                {
+                    role: "Tech Lead & Project Mentor",
+                    period: "2024 - Hiện tại",
+                    company: "Vai trò: Trưởng nhóm kỹ thuật & Cố vấn công nghệ",
+                    bullets: [
+                        "<strong>Quản trị & Điều hành:</strong> Ứng dụng mô hình Agile/Scrum trên Jira để quản trị hiệu quả tiến độ, phân tách task và kiểm soát rủi ro cho các nhóm kỹ thuật.",
+                        "<strong>Định hướng kỹ thuật:</strong> Mentor trực tiếp giải pháp hệ thống, thiết kế Database PostgreSQL và thiết lập quy trình CI/CD hoàn chỉnh qua GitLab.",
+                        "<strong>Dựa trên dữ liệu:</strong> Phân tích kỹ lưỡng tài liệu yêu cầu nghiệp vụ (SRS), làm rõ scope sản phẩm và kết xuất các insights dữ liệu hỗ trợ quyết định vận hành."
+                    ],
+                    type: "tech mgmt"
+                },
+                {
+                    role: "E-commerce Operations Manager",
+                    period: "2024 - Hiện tại",
+                    company: "Vai trò: Người sáng lập và Điều hành cửa hàng",
+                    bullets: [
+                        "<strong>Thương hiệu điện tử:</strong> Thành lập gian hàng công nghệ chính hãng Shopee (duylongcomputer_official); tự quản trị thiết kế, tối ưu hình ảnh sản phẩm và chạy SEO/Marketing sản phẩm đạt tỉ lệ chuyển đổi cao.",
+                        "<strong>Chuỗi cung ứng (Logistics):</strong> Thiết lập quy trình đóng gói chuẩn hóa, điều phối đối soát COD dòng tiền hàng ngày, tối ưu hóa mối quan hệ với GHTK cắt giảm thời gian giao vận."
+                    ],
+                    type: "ops"
+                },
+                {
+                    role: "Quản lý Mảng Truyền thông",
+                    period: "Lịch sử làm việc",
+                    company: "Công ty Du lịch & Nghỉ dưỡng",
+                    bullets: [
+                        "<strong>Hoạch định chiến lược:</strong> Lên kế hoạch định vị thương hiệu và trực tiếp tổ chức triển khai sản xuất nội dung truyền thông ngành du lịch, nghỉ dưỡng phân khúc cao cấp.",
+                        "<strong>Quản trị đội nhóm:</strong> Điều phối phân công công việc hàng ngày đối với team sáng tạo (Design, Biên tập viên, Video Editors).",
+                        "<strong>Đại diện thương lượng:</strong> Khai thác năng lực giao tiếp mạnh mẽ để đàm phán hợp đồng truyền thông với đối tác ngoài, trực tiếp thuyết trình chiến dịch lớn trước Ban điều hành công ty."
+                    ],
+                    type: "ops mgmt"
+                },
+                {
+                    role: "Kỹ thuật viên Thiết bị & Hệ thống",
+                    period: "Giai đoạn đầu sự nghiệp",
+                    company: "Vai trò: Quản lý kỹ thuật sửa chữa phần cứng",
+                    bullets: [
+                        "Khắc phục sự cố mạng, bảo trì phần cứng, cài đặt tối ưu hệ điều hành & bảo mật cho hàng trăm khách hàng cá nhân/doanh nghiệp.",
+                        "Tích lũy vốn kiến thức sâu sắc về vi mạch phần cứng bổ trợ trực tiếp cho tư duy lập trình tối ưu hiệu năng bộ nhớ phần mềm và năng lực vận hành thực tế."
+                    ],
+                    type: "tech"
+                }
+            ],
+            projects: [
+                {
+                    title: "Marketplace Platform",
+                    badge: "Giảm 95% lừa đảo",
+                    desc: "Phát triển sàn giao dịch đồ cũ nội bộ dành cho sinh viên cơ sở Hòa Lạc. Triển khai cơ chế bắt buộc xác thực tài khoản qua email đuôi trường học giúp loại trừ tài khoản spam, tăng độ tin cậy giao dịch tối đa.",
+                    type: "tech"
+                },
+                {
+                    title: "Computer Store POS System",
+                    badge: "+30% Vận Hành",
+                    desc: "Xây dựng ứng dụng quản lý kho linh kiện điện tử, lịch sử bảo trì chi tiết và theo dõi dòng doanh thu COD tích hợp. Giải quyết bài toán phân kho linh kiện phức tạp giúp tinh gọn quy trình quản lý.",
+                    type: "tech ops"
+                },
+                {
+                    title: "MMO Digital Marketplace",
+                    badge: "Security Focus",
+                    desc: "Thiết kế sàn mua bán tài nguyên công nghệ số (API Keys, cloud accounts) phục vụ cộng đồng MMO. Tự động hóa tích hợp cổng thanh toán tức thời, bảo mật mã hóa giao dịch tránh khai thác lỗ hổng.",
+                    type: "tech"
+                },
+                {
+                    title: "QuanLyVatTu & CI/CD",
+                    badge: "Automation",
+                    desc: "Xây dựng hệ thống lõi doanh nghiệp quy chuẩn. Tích hợp pipeline kiểm thử tự động, containerize Docker & deploy đám mây GitLab giúp tối ưu hóa tiến độ phát hành.",
+                    type: "tech mgmt"
+                }
+            ],
+            avatar: null
+        };
+
+        // App state
+        let cvList = [];
+        let activeCVId = null;
+        let isEditMode = false;
+
+        // Initialize App on DOM Content Loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            loadDatabase();
+            checkSessionAndRoute();
+            window.addEventListener('hashchange', checkSessionAndRoute);
+        });
+
+        // Load CVs list from localStorage
+        function loadDatabase() {
+            const saved = localStorage.getItem('cv_list');
+            if (saved) {
+                try {
+                    cvList = JSON.parse(saved);
+                } catch (e) {
+                    cvList = [];
+                }
+            }
+            if (cvList.length === 0) {
+                // Initialize default
+                const defaultCV = JSON.parse(JSON.stringify(DEFAULT_CV_DATA));
+                defaultCV.id = 'cv-default';
+                defaultCV.lastModified = new Date().toISOString();
+                
+                // Get saved avatar from previous versions if any
+                const savedAvatar = localStorage.getItem('cv_avatar');
+                if (savedAvatar) {
+                    defaultCV.avatar = savedAvatar;
+                }
+                
+                cvList.push(defaultCV);
+                saveDatabase();
+            }
+        }
+
+        function saveDatabase() {
+            localStorage.setItem('cv_list', JSON.stringify(cvList));
+        }
+
+        // Router & Session Check
+        function checkSessionAndRoute() {
+            const hash = window.location.hash || '#dashboard';
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+            if (!isLoggedIn && hash !== '#login') {
+                window.location.hash = '#login';
+                return;
+            }
+
+            // Hide all views first
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('dashboard-view').classList.add('hidden');
+            document.getElementById('cv-view').classList.add('hidden');
+
+            if (hash === '#login') {
+                if (isLoggedIn) {
+                    window.location.hash = '#dashboard';
+                } else {
+                    document.getElementById('login-view').classList.remove('hidden');
+                }
+            } else if (hash === '#dashboard') {
+                document.getElementById('dashboard-view').classList.remove('hidden');
+                renderCVGrid();
+            } else if (hash.startsWith('#cv/')) {
+                const cvId = hash.split('/')[1];
+                const cv = cvList.find(c => c.id === cvId);
+                if (cv) {
+                    activeCVId = cvId;
+                    loadCVToDOM(cv);
+                    document.getElementById('cv-view').classList.remove('hidden');
+                } else {
+                    window.location.hash = '#dashboard';
+                }
+            }
+        }
+
+        // Login operations
+        function togglePasswordVisibility() {
+            const input = document.getElementById('login-password');
+            const icon = document.getElementById('password-toggle-icon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const pass = document.getElementById('login-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            if (email === 'duclongg9@gmail.com' && pass === 'Long@123') {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                errorDiv.classList.add('hidden');
+                window.location.hash = '#dashboard';
+            } else {
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.hash = '#login';
+        }
+
+        function goBackToDashboard() {
+            if (isEditMode) {
+                if (confirm('Bạn có thay đổi chưa lưu. Quay lại dashboard?')) {
+                    toggleEditMode(false);
+                    window.location.hash = '#dashboard';
+                }
+            } else {
+                window.location.hash = '#dashboard';
+            }
+        }
+
+        // Dashboard rendering
+        function renderCVGrid() {
+            const grid = document.getElementById('cv-grid');
+            const search = document.getElementById('dashboard-search').value.toLowerCase();
+            grid.innerHTML = '';
+
+            const filtered = cvList.filter(cv => 
+                cv.title.toLowerCase().includes(search) || 
+                cv.role.toLowerCase().includes(search) ||
+                cv.name.toLowerCase().includes(search)
+            );
+
+            filtered.forEach(cv => {
+                const card = document.createElement('div');
+                card.className = 'bg-brand-card border border-brand-border hover:border-brand-accent/50 rounded-3xl p-6 shadow-xl flex flex-col justify-between group transition-all duration-300';
+                
+                const formattedDate = new Date(cv.lastModified).toLocaleDateString('vi-VN', {
+                    year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-bold tracking-widest text-brand-accent uppercase font-display bg-brand-accent/10 px-2.5 py-1 rounded-lg">CV Profile</span>
+                            <span class="text-[10px] text-brand-dimText font-medium">${formattedDate}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1 group-hover:text-brand-accent transition-colors truncate">${cv.title}</h3>
+                        <p class="text-xs text-brand-dimText line-clamp-2 leading-relaxed mb-6">${cv.role}</p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between border-t border-brand-border/50 pt-4 mt-2 gap-2">
+                        <div class="flex gap-1.5">
+                            <button onclick="window.location.hash = '#cv/${cv.id}'" class="bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-bold text-xs px-3.5 py-2 rounded-xl transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-eye-slash"></i>
+                                <span>Xem/Sửa</span>
+                            </button>
+                            <button onclick="duplicateCV('${cv.id}')" title="Nhân bản" class="bg-[#1a1a24] hover:bg-brand-border border border-brand-border text-brand-dimText hover:text-white px-2.5 py-2 rounded-xl transition text-xs">
+                                <i class="fa-solid fa-clone"></i>
+                            </button>
+                            <button onclick="downloadCVStandalone('${cv.id}')" title="Tải HTML độc lập" class="bg-[#1a1a24] hover:bg-brand-border border border-brand-border text-brand-dimText hover:text-white px-2.5 py-2 rounded-xl transition text-xs">
+                                <i class="fa-solid fa-download"></i>
+                            </button>
+                        </div>
+                        
+                        <button onclick="deleteCV('${cv.id}')" title="Xóa" class="text-brand-dimText hover:text-red-400 p-2 rounded-xl hover:bg-red-500/10 transition">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-brand-dimText">
+                        <i class="fa-solid fa-folder-open text-4xl mb-3 text-brand-border"></i>
+                        <p class="text-sm">Không tìm thấy CV nào phù hợp!</p>
+                    </div>
+                `;
+            }
+        }
+
+        // CV Operations
+        function createNewCV() {
+            const title = prompt('Nhập tiêu đề cho CV mới:', 'Bản sao CV của tôi');
+            if (title === null || title.trim() === '') return;
+
+            const newCV = JSON.parse(JSON.stringify(DEFAULT_CV_DATA));
+            newCV.id = 'cv-' + Date.now();
+            newCV.title = title.trim();
+            newCV.lastModified = new Date().toISOString();
+
+            cvList.push(newCV);
+            saveDatabase();
+            renderCVGrid();
+        }
+
+        function duplicateCV(id) {
+            const origin = cvList.find(c => c.id === id);
+            if (!origin) return;
+
+            const copy = JSON.parse(JSON.stringify(origin));
+            copy.id = 'cv-' + Date.now();
+            copy.title = origin.title + ' (Bản sao)';
+            copy.lastModified = new Date().toISOString();
+
+            cvList.push(copy);
+            saveDatabase();
+            renderCVGrid();
+        }
+
+        function deleteCV(id) {
+            if (id === 'cv-default') {
+                alert('Không thể xóa CV mặc định ban đầu!');
+                return;
+            }
+            if (confirm('Bạn chắc chắn muốn xóa CV này? Hành động này không thể hoàn tác.')) {
+                cvList = cvList.filter(c => c.id !== id);
+                saveDatabase();
+                renderCVGrid();
+            }
+        }
+
+        // Database backups (Import/Export JSON)
+        function exportJSONDatabase() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(cvList, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `CV_Database_Backup_${new Date().toISOString().slice(0,10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importJSONDatabase(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].name && parsed[0].id) {
+                        if (confirm('Bạn có muốn gộp cơ sở dữ liệu hiện tại với file import không? (Chọn Cancel để ghi đè toàn bộ)')) {
+                            cvList = [...cvList, ...parsed];
+                        } else {
+                            cvList = parsed;
+                        }
+                        saveDatabase();
+                        renderCVGrid();
+                        alert('Nhập Database thành công!');
+                    } else {
+                        alert('Cấu trúc file JSON không hợp lệ!');
+                    }
+                } catch (err) {
+                    alert('Lỗi đọc file hoặc cấu trúc JSON sai định dạng!');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; // Reset input
+        }
+
+        // Load CV Data to DOM for Viewer/Editor
+        function loadCVToDOM(cv) {
+            isEditMode = false;
+            document.getElementById('cv-view').classList.remove('editing');
+            
+            // Set edit buttons status
+            const editBtn = document.getElementById('edit-mode-btn');
+            const editTxt = document.getElementById('edit-mode-text');
+            editBtn.classList.remove('bg-brand-accent', 'text-brand-dark');
+            editBtn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
+            editTxt.innerText = "Chỉnh sửa";
+
+            // Map standard text nodes
+            document.getElementById('cv-name').innerText = cv.name || '';
+            document.getElementById('cv-role').innerText = cv.role || '';
+            document.getElementById('cv-location').innerText = cv.location || '';
+            document.getElementById('cv-email').innerText = cv.email || '';
+            document.getElementById('cv-email').href = `mailto:${cv.email || ''}`;
+            document.getElementById('cv-phone').innerText = cv.phone || '';
+            document.getElementById('cv-summary').innerText = cv.summary || '';
+
+            // Render Skills
+            renderSkillsBlock('tech', cv.skills.tech);
+            renderSkillsBlock('mgmt', cv.skills.mgmt);
+            renderSkillsBlock('ops', cv.skills.ops);
+            renderSkillsBlock('trends', cv.skills.trends);
+
+            // Render Education
+            const eduList = document.getElementById('education-list');
+            eduList.innerHTML = '';
+            (cv.education || []).forEach(edu => {
+                eduList.appendChild(createEducationDOM(edu));
+            });
+
+            // Render Languages
+            const langList = document.getElementById('languages-list');
+            langList.innerHTML = '';
+            (cv.languages || []).forEach(lang => {
+                langList.appendChild(createLanguageDOM(lang));
+            });
+
+            // Render Experiences
+            const expList = document.getElementById('experience-list');
+            expList.innerHTML = '';
+            (cv.experiences || []).forEach(exp => {
+                expList.appendChild(createExperienceDOM(exp));
+            });
+
+            // Render Projects
+            const projList = document.getElementById('projects-list');
+            projList.innerHTML = '';
+            (cv.projects || []).forEach(proj => {
+                projList.appendChild(createProjectDOM(proj));
+            });
+
+            // Handle Avatar Display
+            updateAvatarUI(cv.avatar);
+            
+            // Reset filters
+            filterCV('all');
+        }
+
+        // Sub-elements creation functions
+        function renderSkillsBlock(category, list) {
+            const container = document.getElementById(`skills-${category}`);
+            container.innerHTML = '';
+            (list || []).forEach(tag => {
+                container.appendChild(createSkillTagDOM(tag));
+            });
+        }
+
+        function createSkillTagDOM(value) {
+            const span = document.createElement('span');
+            span.className = 'skill-tag px-2.5 py-1 text-xs rounded-md bg-[#16161a] text-brand-dimText border border-brand-border print-text-dark print-border-gray relative group/tag inline-flex items-center';
+            span.innerHTML = `
+                <span class="editable-field" contenteditable="false">${value}</span>
+                <button onclick="this.parentElement.remove()" class="edit-controls ml-1 text-red-400 hover:text-red-300 no-print" style="display:none">
+                    <i class="fa-solid fa-xmark text-[9px] cursor-pointer"></i>
+                </button>
+            `;
+            return span;
+        }
+
+        function createEducationDOM(edu) {
+            const div = document.createElement('div');
+            div.className = 'relative pl-4 border-l border-brand-border print-border-gray group/edu';
+            div.innerHTML = `
+                <button onclick="this.parentElement.remove()" class="edit-controls absolute -right-2 top-0 text-red-500 hover:text-red-400 no-print" style="display:none">
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+                <h3 class="editable-field text-base font-bold text-white print-text-dark" contenteditable="false">${edu.school}</h3>
+                <p class="editable-field text-sm text-brand-accent font-semibold print-accent-text mt-0.5" contenteditable="false">${edu.major}</p>
+                <p class="editable-field text-xs text-brand-dimText mt-1 print-text-gray" contenteditable="false">${edu.period}</p>
+            `;
+            return div;
+        }
+
+        function createLanguageDOM(lang) {
+            const div = document.createElement('div');
+            div.className = 'group/lang relative';
+            div.innerHTML = `
+                <button onclick="this.parentElement.remove()" class="edit-controls absolute -right-2 top-0 text-red-500 hover:text-red-400 no-print" style="display:none">
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+                <div class="flex justify-between text-sm mb-1">
+                    <span class="editable-field font-medium text-white print-text-dark" contenteditable="false">${lang.name}</span>
+                    <span class="editable-field text-brand-accent font-semibold print-accent-text text-xs" contenteditable="false">${lang.level}</span>
+                </div>
+                <div class="w-full bg-[#16161a] h-1.5 rounded-full overflow-hidden print-border-gray border relative">
+                    <div class="bg-brand-accent h-full print-accent-text" style="width: ${lang.percentage || 50}%"></div>
+                    <input type="range" class="edit-controls absolute inset-0 opacity-0 cursor-pointer no-print" min="0" max="100" value="${lang.percentage || 50}" onchange="this.parentElement.firstElementChild.style.width = this.value + '%'" style="display:none">
+                </div>
+                <p class="editable-field text-[11px] text-brand-dimText mt-1 print-text-gray" contenteditable="false">${lang.note}</p>
+            `;
+            return div;
+        }
+
+        function createExperienceDOM(exp) {
+            const div = document.createElement('div');
+            div.className = 'cv-item relative pl-6 timeline-line group/item';
+            div.setAttribute('data-type', exp.type || 'tech');
+            
+            const bulletsHtml = (exp.bullets || []).map(b => `
+                <li class="editable-field relative pr-6 group/bullet" contenteditable="false">
+                    ${b}
+                    <button onclick="this.parentElement.remove()" class="edit-controls absolute right-0 top-0.5 text-red-400 hover:text-red-300 no-print" style="display:none">
+                        <i class="fa-solid fa-xmark text-[10px]"></i>
+                    </button>
+                </li>
+            `).join('');
+
+            div.innerHTML = `
+                <div class="timeline-dot absolute left-0 top-1.5 w-4 h-4 rounded-full bg-brand-accent border-4 border-brand-card z-10 print-bg-white"></div>
+                
+                <button onclick="this.parentElement.remove()" class="edit-controls absolute top-1 right-0 text-red-500 hover:text-red-400 no-print" style="display:none">
+                    <i class="fa-solid fa-trash-can text-sm"></i>
+                </button>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                    <h3 class="editable-field text-lg font-bold text-white print-text-dark" contenteditable="false">${exp.role}</h3>
+                    <span class="editable-field text-xs font-semibold px-2.5 py-1 rounded bg-[#16161a] text-brand-accent border border-brand-border uppercase tracking-wider print-accent-text print-border-gray" contenteditable="false">${exp.period}</span>
+                </div>
+                <p class="editable-field text-sm font-semibold text-brand-dimText mb-3 print-text-gray" contenteditable="false">${exp.company}</p>
+                
+                <div class="edit-controls flex gap-2 items-center mt-1 mb-2.5 no-print" style="display:none">
+                    <span class="text-[10px] text-brand-dimText">Lọc thế mạnh:</span>
+                    <input class="cv-item-type bg-[#1a1a24] border border-brand-border rounded px-2 py-0.5 text-[10px] text-brand-accent focus:outline-none focus:border-brand-accent" value="${exp.type || 'tech'}" placeholder="tech mgmt ops">
+                </div>
+
+                <ul class="text-sm text-brand-dimText space-y-2 list-disc pl-4 print-text-gray">
+                    ${bulletsHtml}
+                </ul>
+                
+                <button onclick="addBulletToExperience(this)" class="edit-controls mt-2 text-xs text-brand-accent hover:underline flex items-center gap-1 no-print" style="display:none">
+                    <i class="fa-solid fa-plus-circle"></i>
+                    <span>Thêm dòng mô tả</span>
+                </button>
+            `;
+            return div;
+        }
+
+        function createProjectDOM(proj) {
+            const div = document.createElement('div');
+            div.className = 'cv-item p-5 bg-brand-dark/40 border border-brand-border rounded-xl print-bg-white print-text-dark print-border-gray relative group/proj';
+            div.setAttribute('data-type', proj.type || 'tech');
+            div.innerHTML = `
+                <button onclick="this.parentElement.remove()" class="edit-controls absolute top-2 right-2 text-red-500 hover:text-red-400 no-print" style="display:none">
+                    <i class="fa-solid fa-trash-can text-sm"></i>
+                </button>
+                
+                <div class="edit-controls flex gap-2 items-center mt-1 mb-3 no-print" style="display:none">
+                    <span class="text-[10px] text-brand-dimText font-medium">Bộ lọc:</span>
+                    <input class="cv-item-type bg-[#1a1a24] border border-brand-border rounded px-2 py-0.5 text-[10px] text-brand-accent focus:outline-none" value="${proj.type || 'tech'}" placeholder="tech mgmt ops">
+                </div>
+
+                <div class="flex items-start justify-between gap-2 mb-2">
+                    <h3 class="editable-field font-bold text-white text-base print-text-dark" contenteditable="false">${proj.title}</h3>
+                    <span class="editable-field text-[10px] px-2 py-0.5 rounded bg-brand-accent/10 text-brand-accent font-semibold uppercase tracking-wider print-border-gray print-text-dark" contenteditable="false">${proj.badge}</span>
+                </div>
+                <p class="editable-field text-xs text-brand-dimText leading-relaxed print-text-gray" contenteditable="false">${proj.desc}</p>
+            `;
+            return div;
+        }
+
+        // Inline Editors Action Helpers
+        function addSkillTag(category) {
+            const container = document.getElementById(`skills-${category}`);
+            const tagValue = prompt('Nhập thẻ kỹ năng mới:');
+            if (tagValue && tagValue.trim() !== '') {
+                const dom = createSkillTagDOM(tagValue.trim());
+                container.appendChild(dom);
+                // Make field editable immediately
+                const field = dom.querySelector('.editable-field');
+                field.setAttribute('contenteditable', 'true');
+                // Show X button
+                const btn = dom.querySelector('.edit-controls');
+                btn.style.display = 'inline-flex';
+            }
+        }
+
+        function addEducationItem() {
+            const container = document.getElementById('education-list');
+            const edu = { school: 'Tên trường học', major: 'Ngành học', period: '2025 - 2026' };
+            const dom = createEducationDOM(edu);
+            container.appendChild(dom);
+            
+            // Set contenteditable immediately
+            dom.querySelectorAll('.editable-field').forEach(el => el.setAttribute('contenteditable', 'true'));
+            dom.querySelector('.edit-controls').style.display = 'inline-flex';
+        }
+
+        function addLanguageItem() {
+            const container = document.getElementById('languages-list');
+            const lang = { name: 'Ngôn ngữ mới', level: 'Trình độ', percentage: 60, note: 'Ghi chú mô tả' };
+            const dom = createLanguageDOM(lang);
+            container.appendChild(dom);
+            
+            dom.querySelectorAll('.editable-field').forEach(el => el.setAttribute('contenteditable', 'true'));
+            dom.querySelectorAll('.edit-controls').forEach(el => el.style.display = 'inline-flex');
+        }
+
+        function addExperienceItem() {
+            const container = document.getElementById('experience-list');
+            const exp = {
+                role: 'Vị trí công việc',
+                period: 'Thời gian làm việc',
+                company: 'Tên công ty / Cơ quan',
+                bullets: ['Dòng mô tả trách nhiệm hoặc đóng góp của bạn.'],
+                type: 'tech'
+            };
+            const dom = createExperienceDOM(exp);
+            container.appendChild(dom);
+
+            dom.querySelectorAll('.editable-field').forEach(el => el.setAttribute('contenteditable', 'true'));
+            dom.querySelectorAll('.edit-controls').forEach(el => el.style.display = 'inline-flex');
+        }
+
+        function addBulletToExperience(btn) {
+            const ul = btn.previousElementSibling;
+            const li = document.createElement('li');
+            li.className = 'editable-field relative pr-6 group/bullet';
+            li.setAttribute('contenteditable', 'true');
+            li.innerHTML = `
+                Mô tả mới của bạn...
+                <button onclick="this.parentElement.remove()" class="edit-controls absolute right-0 top-0.5 text-red-400 hover:text-red-300 no-print" style="display:inline-flex">
+                    <i class="fa-solid fa-xmark text-[10px]"></i>
+                </button>
+            `;
+            ul.appendChild(li);
+        }
+
+        function addProjectItem() {
+            const container = document.getElementById('projects-list');
+            const proj = {
+                title: 'Tên dự án mới',
+                badge: 'Thành tựu/Tính năng',
+                desc: 'Mô tả chi tiết giải pháp, công nghệ sử dụng và kết quả đóng góp của dự án.',
+                type: 'tech'
+            };
+            const dom = createProjectDOM(proj);
+            container.appendChild(dom);
+
+            dom.querySelectorAll('.editable-field').forEach(el => el.setAttribute('contenteditable', 'true'));
+            dom.querySelectorAll('.edit-controls').forEach(el => el.style.display = 'inline-flex');
+        }
+
+        // Toggle Edit Mode Status
+        function toggleEditMode() {
+            const editBtn = document.getElementById('edit-mode-btn');
+            const editTxt = document.getElementById('edit-mode-text');
+            const saveBtn = document.getElementById('save-cv-btn');
+            
+            isEditMode = !isEditMode;
+
+            if (isEditMode) {
+                document.getElementById('cv-view').classList.add('editing');
+                editBtn.classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
+                editBtn.classList.add('bg-brand-accent', 'text-brand-dark');
+                editTxt.innerText = "Thoát sửa";
+                
+                // Show edit controls
+                document.querySelectorAll('.edit-controls').forEach(el => {
+                    if (el.tagName === 'BUTTON') {
+                        el.style.display = 'inline-flex';
+                    } else if (el.tagName === 'INPUT') {
+                        el.style.display = 'inline-block';
+                    } else {
+                        el.style.display = 'block';
+                    }
+                });
+
+                // Set contenteditable true
+                document.querySelectorAll('.editable-field').forEach(el => {
+                    el.setAttribute('contenteditable', 'true');
+                });
+            } else {
+                document.getElementById('cv-view').classList.remove('editing');
+                editBtn.classList.remove('bg-brand-accent', 'text-brand-dark');
+                editBtn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
+                editTxt.innerText = "Chỉnh sửa";
+
+                // Hide edit controls
+                document.querySelectorAll('.edit-controls').forEach(el => {
+                    el.style.display = 'none';
+                });
+
+                // Set contenteditable false
+                document.querySelectorAll('.editable-field').forEach(el => {
+                    el.setAttribute('contenteditable', 'false');
+                });
+            }
+        }
+
+        // Extract Data from DOM and Save back to DB
+        function saveCurrentCV() {
+            if (!activeCVId) return;
+            const cv = cvList.find(c => c.id === activeCVId);
+            if (!cv) return;
+
+            // Simple text fields
+            cv.name = document.getElementById('cv-name').innerText.trim();
+            cv.role = document.getElementById('cv-role').innerText.trim();
+            cv.location = document.getElementById('cv-location').innerText.trim();
+            cv.email = document.getElementById('cv-email').innerText.trim();
+            cv.phone = document.getElementById('cv-phone').innerText.trim();
+            cv.summary = document.getElementById('cv-summary').innerText.trim();
+
+            // Extract Skills
+            cv.skills = {
+                tech: extractSkillsFromDOM('tech'),
+                mgmt: extractSkillsFromDOM('mgmt'),
+                ops: extractSkillsFromDOM('ops'),
+                trends: extractSkillsFromDOM('trends')
+            };
+
+            // Extract Education
+            cv.education = [];
+            document.querySelectorAll('#education-list > div').forEach(div => {
+                const school = div.querySelector('h3').innerText.trim();
+                const major = div.querySelector('p.text-sm').innerText.trim();
+                const period = div.querySelector('p.text-xs').innerText.trim();
+                cv.education.push({ school, major, period });
+            });
+
+            // Extract Languages
+            cv.languages = [];
+            document.querySelectorAll('#languages-list > div').forEach(div => {
+                const name = div.querySelector('.flex.justify-between span:first-child').innerText.trim();
+                const level = div.querySelector('.flex.justify-between span:last-child').innerText.trim();
+                
+                // Get percentage
+                const barWidth = div.querySelector('.w-full.bg-\\[\\#16161a\\] > div').style.width;
+                const percentage = parseInt(barWidth) || 50;
+                
+                const note = div.querySelector('p.text-\\[11px\\]').innerText.trim();
+                cv.languages.push({ name, level, percentage, note });
+            });
+
+            // Extract Experiences
+            cv.experiences = [];
+            document.querySelectorAll('#experience-list > div').forEach(div => {
+                const role = div.querySelector('h3').innerText.trim();
+                const period = div.querySelector('span.text-xs').innerText.trim();
+                const company = div.querySelector('p.text-sm').innerText.trim();
+                
+                // Get type input value
+                const typeInput = div.querySelector('.cv-item-type');
+                const type = typeInput ? typeInput.value.trim() : 'tech';
+
+                const bullets = [];
+                div.querySelectorAll('ul li').forEach(li => {
+                    // Extract HTML content to preserve <strong> and similar inline tags
+                    bullets.push(li.innerHTML.replace(/<button.*<\/button>/g, '').trim());
+                });
+
+                cv.experiences.push({ role, period, company, bullets, type });
+            });
+
+            // Extract Projects
+            cv.projects = [];
+            document.querySelectorAll('#projects-list > div').forEach(div => {
+                const title = div.querySelector('h3').innerText.trim();
+                const badge = div.querySelector('span.text-\\[10px\\]').innerText.trim();
+                const desc = div.querySelector('p.text-xs').innerText.trim();
+                
+                const typeInput = div.querySelector('.cv-item-type');
+                const type = typeInput ? typeInput.value.trim() : 'tech';
+
+                cv.projects.push({ title, badge, desc, type });
+            });
+
+            // Save avatar URL
+            const img = document.getElementById('avatarImage');
+            cv.avatar = img.classList.contains('hidden') ? null : img.src;
+
+            // Save timestamp
+            cv.lastModified = new Date().toISOString();
+
+            saveDatabase();
+            toggleEditMode(); // Exit edit mode
+            alert('Lưu thay đổi thành công!');
+        }
+
+        function extractSkillsFromDOM(category) {
+            const list = [];
+            document.querySelectorAll(`#skills-${category} span.skill-tag`).forEach(tag => {
+                list.push(tag.querySelector('.editable-field').innerText.trim());
+            });
+            return list;
+        }
+
+        // Handle Avatar File Uploads
+        function uploadAvatar(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const dataUrl = e.target.result;
+                    // Save temporarily in image element
+                    updateAvatarUI(dataUrl);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updateAvatarUI(dataUrl) {
+            const img = document.getElementById('avatarImage');
+            const placeholder = document.getElementById('avatarPlaceholder');
+            const container = document.getElementById('avatarContainer');
+            
+            if (dataUrl) {
+                img.src = dataUrl;
+                img.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+                container.classList.remove('print:hidden');
+            } else {
+                img.src = '';
+                img.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+                container.classList.add('print:hidden');
+            }
+        }
+
+        // Live CV Filtering on Screen
+        function filterCV(category) {
+            // Update active state of filter buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-accent', 'text-brand-dark');
+                btn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
+            });
+
+            // Find clicked button and style active
+            const clickedBtn = event ? event.currentTarget : null;
+            if (clickedBtn) {
+                clickedBtn.classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
+                clickedBtn.classList.add('bg-brand-accent', 'text-brand-dark');
+            } else {
+                // Default highlight for 'all' button
+                buttons[0].classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
+                buttons[0].classList.add('bg-brand-accent', 'text-brand-dark');
+            }
+
+            // Filter items
+            const items = document.querySelectorAll('.cv-item');
+            const skillBlocks = document.querySelectorAll('.skill-category-block');
+
+            items.forEach(item => {
+                const types = item.getAttribute('data-type') || '';
+                if (category === 'all' || types.includes(category)) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                    item.style.display = 'block';
+                } else {
+                    item.style.opacity = '0.15';
+                }
+            });
+
+            skillBlocks.forEach(block => {
+                const cat = block.getAttribute('data-category');
+                if (category === 'all' || cat === category) {
+                    block.style.opacity = '1';
+                } else {
+                    block.style.opacity = '0.25';
+                }
+            });
+        }
+
+        // Standalone HTML Exporter
+        function downloadCVStandalone(id) {
+            const cv = cvList.find(c => c.id === id);
+            if (!cv) return;
+
+            // Generate self-contained HTML
+            const htmlContent = generateStandaloneHTML(cv);
+            const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+            
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.href = URL.createObjectURL(blob);
+            downloadAnchor.download = `index.html`; // Ready to push to Netlify!
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function exportStandaloneHTML() {
+            if (!activeCVId) return;
+            downloadCVStandalone(activeCVId);
+        }
+
+        function generateStandaloneHTML(cv) {
+            // Retrieve page styling definitions from our head style tags
+            const cssStyles = Array.from(document.querySelectorAll('style')).map(s => s.innerHTML).join('\n');
+            const fonts = document.querySelector('link[href*="fonts.googleapis.com"]').outerHTML;
+            const fontAwesome = document.querySelector('link[href*="font-awesome"]').outerHTML;
+
+            // Generate HTML structures for lists
+            const techTags = (cv.skills.tech || []).map(t => `<span class="skill-tag px-2.5 py-1 text-xs rounded-md bg-[#16161a] text-brand-dimText border border-brand-border print-text-dark print-border-gray">${t}</span>`).join('\n');
+            const mgmtTags = (cv.skills.mgmt || []).map(t => `<span class="skill-tag px-2.5 py-1 text-xs rounded-md bg-[#16161a] text-brand-dimText border border-brand-border print-text-dark print-border-gray">${t}</span>`).join('\n');
+            const opsTags = (cv.skills.ops || []).map(t => `<span class="skill-tag px-2.5 py-1 text-xs rounded-md bg-[#16161a] text-brand-dimText border border-brand-border print-text-dark print-border-gray">${t}</span>`).join('\n');
+            const trendsTags = (cv.skills.trends || []).map(t => `<span class="skill-tag px-2.5 py-1 text-xs rounded-md bg-[#16161a] text-brand-dimText border border-brand-border print-text-dark print-border-gray">${t}</span>`).join('\n');
+
+            const eduHtml = (cv.education || []).map(edu => `
+                <div class="relative pl-4 border-l border-brand-border print-border-gray">
+                    <h3 class="text-base font-bold text-white print-text-dark">${edu.school}</h3>
+                    <p class="text-sm text-brand-accent font-semibold print-accent-text mt-0.5">${edu.major}</p>
+                    <p class="text-xs text-brand-dimText mt-1 print-text-gray">${edu.period}</p>
+                </div>
+            `).join('\n');
+
+            const langHtml = (cv.languages || []).map(lang => `
+                <div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="font-medium text-white print-text-dark">${lang.name}</span>
+                        <span class="text-brand-accent font-semibold print-accent-text text-xs">${lang.level}</span>
+                    </div>
+                    <div class="w-full bg-[#16161a] h-1.5 rounded-full overflow-hidden print-border-gray border">
+                        <div class="bg-brand-accent h-full print-accent-text" style="width: ${lang.percentage}%"></div>
+                    </div>
+                    <p class="text-[11px] text-brand-dimText mt-1 print-text-gray">${lang.note}</p>
+                </div>
+            `).join('\n');
+
+            const expHtml = (cv.experiences || []).map(exp => `
+                <div class="cv-item relative pl-6 timeline-line" data-type="${exp.type}">
+                    <div class="timeline-dot absolute left-0 top-1.5 w-4 h-4 rounded-full bg-brand-accent border-4 border-brand-card z-10 print-bg-white"></div>
+                    
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <h3 class="text-lg font-bold text-white print-text-dark">${exp.role}</h3>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-[#16161a] text-brand-accent border border-brand-border uppercase tracking-wider print-accent-text print-border-gray">
+                            ${exp.period}
+                        </span>
+                    </div>
+                    <p class="text-sm font-semibold text-brand-dimText mb-3 print-text-gray">${exp.company}</p>
+                    
+                    <ul class="text-sm text-brand-dimText space-y-2 list-disc pl-4 print-text-gray">
+                        ${exp.bullets.map(b => `<li>${b}</li>`).join('\n')}
+                    </ul>
+                </div>
+            `).join('\n');
+
+            const projHtml = (cv.projects || []).map(proj => `
+                <div class="cv-item p-5 bg-brand-dark/40 border border-brand-border rounded-xl print-bg-white print-text-dark print-border-gray" data-type="${proj.type}">
+                    <div class="flex items-start justify-between gap-2 mb-2">
+                        <h3 class="font-bold text-white text-base print-text-dark">${proj.title}</h3>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-brand-accent/10 text-brand-accent font-semibold uppercase tracking-wider print-border-gray print-text-dark">${proj.badge}</span>
+                    </div>
+                    <p class="text-xs text-brand-dimText leading-relaxed print-text-gray">${proj.desc}</p>
+                </div>
+            `).join('\n');
+
+            // Avatar container HTML
+            let avatarHtml = '';
+            if (cv.avatar) {
+                avatarHtml = `
+                    <div id="avatarContainer" class="relative group shrink-0">
+                        <div class="w-28 h-36 md:w-32 md:h-40 rounded-2xl overflow-hidden flex items-center justify-center print:w-[3cm] print:h-[4cm] print:min-w-[3cm] print:min-h-[4cm] relative bg-brand-dark/20 aspect-[3/4]">
+                            <img id="avatarImage" src="${cv.avatar}" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                `;
+            }
+
+            return `<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - ${cv.name} - ${cv.title}</title>
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    ${fonts}
+    ${fontAwesome}
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            card: '#121216',
+                            accent: '#00f2ad',
+                            accentHover: '#00cfa4',
+                            dimText: '#94a3b8',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    }
+                }
+            }
+        }
+    <\/script>
+    <style>
+        ${cssStyles}
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased min-h-screen pb-16 transition-colors duration-300">
+    
+    <!-- TOP TOOLBAR (No print) -->
+    <header class="max-w-6xl mx-auto px-4 mt-6 no-print">
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+            <div class="flex items-center gap-3">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-accent"></span>
+                </span>
+                <span class="text-xs tracking-widest text-brand-dimText uppercase font-display">Bản CV Số Tương Tác • Sẵn Sàng Ứng Tuyển</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span class="text-xs text-brand-dimText mr-1 hidden md:inline">Lọc thế mạnh:</span>
+                <div class="flex flex-wrap gap-1.5 mr-2">
+                    <button onclick="filterCV('all')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-brand-accent text-brand-dark transition-all duration-200">
+                        Tất cả
+                    </button>
+                    <button onclick="filterCV('tech')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1a1a24] text-brand-dimText hover:text-white transition-all duration-200">
+                        Code/Dev
+                    </button>
+                    <button onclick="filterCV('mgmt')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1a1a24] text-brand-dimText hover:text-white transition-all duration-200">
+                        Quản lý
+                    </button>
+                    <button onclick="filterCV('ops')" class="filter-btn px-2.5 py-1 text-xs font-semibold rounded-lg bg-[#1a1a24] text-brand-dimText hover:text-white transition-all duration-200">
+                        Vận hành
+                    </button>
+                </div>
+                
+                <button onclick="window.print()" class="flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-brand-dark font-semibold px-4 py-2 rounded-xl transition-all duration-200 text-sm shadow-md shadow-brand-accent/10">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Tải PDF / In CV</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CV MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 mt-8 print-bg-white print-text-dark">
+        <div class="bg-brand-card border border-brand-border rounded-3xl overflow-hidden shadow-2xl print-bg-white print-text-dark print-border-gray">
+            
+            <!-- CV HEADER SECTION -->
+            <section class="p-8 md:p-12 bg-gradient-to-r from-black via-brand-card to-black border-b border-brand-border flex flex-col md:flex-row items-start md:items-center justify-between gap-8 print-bg-white print-text-dark print-border-gray relative overflow-hidden">
+                <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#00f2ad_1px,transparent_1px)] [background-size:16px_16px] no-print"></div>
+                
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10 flex-grow w-full">
+                    ${avatarHtml}
+
+                    <div class="text-center sm:text-left flex-grow">
+                        <span class="text-brand-accent font-display font-semibold tracking-wider uppercase text-sm print-accent-text">HỒ SƠ NĂNG LỰC CHUYÊN NGHIỆP</span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight font-display mt-2 print-text-dark">${cv.name}</h1>
+                        <p class="text-base md:text-xl text-brand-dimText font-medium mt-1 print-text-gray">${cv.role}</p>
+                        
+                        <div class="flex flex-wrap justify-center sm:justify-start gap-y-2 gap-x-6 mt-4 text-sm text-brand-dimText print-text-gray">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-brand-accent print-accent-text"></i>
+                                ${cv.location}
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-envelope text-brand-accent print-accent-text"></i>
+                                <a href="mailto:${cv.email}" class="hover:text-white transition">${cv.email}</a>
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-brand-accent print-accent-text"></i>
+                                ${cv.phone}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-4 bg-brand-dark border border-brand-border rounded-2xl no-print shrink-0 md:self-center">
+                    <div class="text-xs text-brand-dimText tracking-wider uppercase">Tốc độ làm việc</div>
+                    <div class="text-2xl font-bold font-display text-brand-accent mt-1">ĐA NHIỆM</div>
+                    <div class="text-[10px] text-brand-dimText mt-1">Tech • PM • E-com</div>
+                </div>
+            </section>
+
+            <!-- TWO-COLUMN CONTENT GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 print-bg-white print-text-dark">
+                
+                <!-- LEFT COLUMN -->
+                <div class="lg:col-span-4 bg-brand-dark/50 p-8 md:p-10 border-r border-brand-border print-bg-white print-text-dark print-border-gray">
+                    
+                    <div class="mb-10">
+                        <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-4 print-accent-text print-border-gray">
+                            Tóm tắt chuyên môn
+                        </h2>
+                        <p class="text-sm text-brand-dimText leading-relaxed text-justify print-text-gray">${cv.summary}</p>
+                    </div>
+
+                    <div class="mb-10">
+                        <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-5 print-accent-text print-border-gray">
+                            Kỹ năng & Công cụ
+                        </h2>
+                        
+                        <div class="space-y-6">
+                            <div class="skill-category-block" data-category="tech">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                    <i class="fa-solid fa-code text-brand-accent print-accent-text"></i>
+                                    Kỹ thuật phần mềm
+                                </h3>
+                                <div class="flex flex-wrap gap-1.5">${techTags}</div>
+                            </div>
+
+                            <div class="skill-category-block" data-category="mgmt">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                    <i class="fa-solid fa-diagram-project text-brand-accent print-accent-text"></i>
+                                    Quản lý & Điều phối
+                                </h3>
+                                <div class="flex flex-wrap gap-1.5">${mgmtTags}</div>
+                            </div>
+
+                            <div class="skill-category-block" data-category="ops">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                    <i class="fa-solid fa-cart-flatbed text-brand-accent print-accent-text"></i>
+                                    Vận hành & Truyền thông
+                                </h3>
+                                <div class="flex flex-wrap gap-1.5">${opsTags}</div>
+                            </div>
+
+                            <div class="skill-category-block" data-category="tech">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2 print-text-dark">
+                                    <i class="fa-solid fa-robot text-brand-accent print-accent-text"></i>
+                                    Công nghệ xu hướng
+                                </h3>
+                                <div class="flex flex-wrap gap-1.5">${trendsTags}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-4 print-accent-text print-border-gray">
+                            Giáo dục
+                        </h2>
+                        <div class="space-y-6">${eduHtml}</div>
+                    </div>
+
+                    <div class="mb-10">
+                        <h2 class="text-lg font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-4 print-accent-text print-border-gray">
+                            Ngoại ngữ
+                        </h2>
+                        <div class="space-y-4">${langHtml}</div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="lg:col-span-8 p-8 md:p-10 bg-brand-card print-bg-white print-text-dark">
+                    
+                    <section class="mb-12">
+                        <h2 class="text-xl font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-6 print-accent-text print-border-gray">
+                            Kinh nghiệm làm việc
+                        </h2>
+                        <div class="space-y-8">${expHtml}</div>
+                    </section>
+
+                    <section>
+                        <h2 class="text-xl font-bold font-display tracking-widest text-brand-accent uppercase border-b border-brand-border pb-3 mb-6 print-accent-text print-border-gray">
+                            Dự án & Sản phẩm tiêu biểu
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${projHtml}</div>
+                    </section>
+
+                </div>
+
+            </div>
+
+            <!-- FOOTER SIGNATURE -->
+            <footer class="p-6 bg-brand-dark/80 border-t border-brand-border text-center text-xs text-brand-dimText print-bg-white print-text-gray print-border-gray relative overflow-hidden no-print">
+                <p class="font-display tracking-widest uppercase">
+                    ${cv.name} <span class="text-brand-accent print-accent-text">•</span> TƯ DUY HỆ THỐNG - ĐIỀU HÀNH ĐA NHIỆM
+                </p>
+                <p class="text-[10px] mt-1 text-gray-600 print-text-gray">Cam kết thông tin trung thực và tính sẵn sàng làm việc cao.</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <script>
+        function filterCV(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-accent', 'text-brand-dark');
+                btn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
+            });
+            const clickedBtn = event ? event.currentTarget : null;
+            if (clickedBtn) {
+                clickedBtn.classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
+                clickedBtn.classList.add('bg-brand-accent', 'text-brand-dark');
+            } else {
+                buttons[0].classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
+                buttons[0].classList.add('bg-brand-accent', 'text-brand-dark');
+            }
+
+            const items = document.querySelectorAll('.cv-item');
+            const skillBlocks = document.querySelectorAll('.skill-category-block');
+
+            items.forEach(item => {
+                const types = item.getAttribute('data-type') || '';
+                if (category === 'all' || types.includes(category)) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                    item.style.display = 'block';
+                } else {
+                    item.style.opacity = '0.15';
+                }
+            });
+
+            skillBlocks.forEach(block => {
+                const cat = block.getAttribute('data-category');
+                if (category === 'all' || cat === category) {
+                    block.style.opacity = '1';
+                } else {
+                    block.style.opacity = '0.25';
+                }
+            });
+        }
+    <\/script>
+</body>
+</html>`;
+        }
+    </script>
+</body>
+</html>
+
