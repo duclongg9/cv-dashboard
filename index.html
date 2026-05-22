@@ -335,6 +335,10 @@
                         <i class="fa-solid fa-file-export"></i>
                         <span>Xuất Database</span>
                     </button>
+                    <button onclick="resetDatabaseToDefault()" class="flex items-center gap-2 bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 text-yellow-400 hover:text-yellow-300 px-4 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Khôi phục mặc định</span>
+                    </button>
                     <button onclick="handleLogout()" class="flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 hover:text-red-300 px-4 py-2.5 rounded-xl transition text-sm">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span>Đăng xuất</span>
@@ -991,6 +995,16 @@
             };
             reader.readAsText(file);
             event.target.value = ''; // Reset input
+        }
+
+        function resetDatabaseToDefault() {
+            if (confirm('Bạn có chắc chắn muốn khôi phục cơ sở dữ liệu về mặc định không? Tất cả các CV hiện tại trong trình duyệt của bạn sẽ bị ghi đè bằng dữ liệu gốc.')) {
+                localStorage.removeItem('cv_list');
+                localStorage.removeItem('cv_avatar');
+                loadDatabase();
+                renderCVGrid();
+                alert('Đã khôi phục dữ liệu gốc thành công!');
+            }
         }
 
         // Load CV Data to DOM for Viewer/Editor
