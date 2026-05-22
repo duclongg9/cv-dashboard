@@ -1510,11 +1510,11 @@
             });
 
             // Find clicked button and style active
-            const clickedBtn = event ? event.currentTarget : null;
+            const clickedBtn = (typeof event !== 'undefined' && event && event.currentTarget && event.currentTarget.classList) ? event.currentTarget : null;
             if (clickedBtn) {
                 clickedBtn.classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
                 clickedBtn.classList.add('bg-brand-accent', 'text-brand-dark');
-            } else {
+            } else if (buttons.length > 0) {
                 // Default highlight for 'all' button
                 buttons[0].classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
                 buttons[0].classList.add('bg-brand-accent', 'text-brand-dark');
@@ -1861,11 +1861,11 @@
                 btn.classList.remove('bg-brand-accent', 'text-brand-dark');
                 btn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
             });
-            const clickedBtn = event ? event.currentTarget : null;
+            const clickedBtn = (typeof event !== 'undefined' && event && event.currentTarget && event.currentTarget.classList) ? event.currentTarget : null;
             if (clickedBtn) {
                 clickedBtn.classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
                 clickedBtn.classList.add('bg-brand-accent', 'text-brand-dark');
-            } else {
+            } else if (buttons.length > 0) {
                 buttons[0].classList.remove('bg-[#1a1a24]', 'text-brand-dimText');
                 buttons[0].classList.add('bg-brand-accent', 'text-brand-dark');
             }
