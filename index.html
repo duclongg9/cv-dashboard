@@ -55,6 +55,10 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .edit-controls {
+            display: none;
+        }
+
         /* Print Media Styles to convert Dark Mode to perfectly formatted Light Mode CV */
         @media print {
             * {
@@ -390,6 +394,11 @@
                         <i class="fa-solid fa-pen-to-square text-brand-accent"></i>
                         <span id="edit-mode-text">Chỉnh sửa</span>
                     </button>
+                    
+                    <a id="login-nav-btn" href="#login" class="flex items-center gap-2 bg-[#1a1a24] hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 text-brand-dimText hover:text-white px-3.5 py-2 rounded-xl transition text-xs font-semibold">
+                        <i class="fa-solid fa-lock text-brand-accent"></i>
+                        <span>Quản trị</span>
+                    </a>
                 </div>
                 
                 <div class="flex flex-wrap items-center justify-end gap-3 w-full lg:w-auto">
@@ -636,8 +645,8 @@
             name: "PHẠM ĐỨC LONG",
             role: "Software Engineer | Project Manager | E-commerce & Operations",
             location: "Hà Nội, Việt Nam",
-            email: "duclongg9@gmail.com",
-            phone: "0385 189 399",
+            email: "email@domain.com",
+            phone: "(+84) xxx-xxx-xxx",
             summary: "Kỹ sư phần mềm và Quản lý dự án đa năng với hơn 4 năm nền tảng kỹ thuật vững chắc, có tư duy hệ thống và năng lực điều hành đa nhiệm xuất sắc. Sở hữu kinh nghiệm thực chiến phong phú từ lập trình Full-stack, tối ưu hạ tầng đám mây, cho đến quản lý truyền thông ngành du lịch nghỉ dưỡng và vận hành thương mại điện tử.",
             skills: {
                 tech: ["Full-stack Dev", "PostgreSQL", "GitLab CI/CD", "Render Cloud", "Firewall & Security"],
@@ -663,7 +672,7 @@
                     company: "Vai trò: Trưởng nhóm kỹ thuật & Cố vấn công nghệ",
                     bullets: [
                         "<strong>Quản trị & Điều hành:</strong> Ứng dụng mô hình Agile/Scrum trên Jira để quản trị hiệu quả tiến độ, phân tách task và kiểm soát rủi ro cho các nhóm kỹ thuật.",
-                        "<strong>Định hướng kỹ thuật:</strong> Mentor trực tiếp giải pháp hệ thống, thiết kế Database PostgreSQL và thiết lập quy trình CI/CD hoàn chỉnh qua GitLab.",
+                        "<strong>Định hướng kỹ thuật:</strong> Mentor trực tiếp giải pháp hệ thống, thiết kế Database PostgreSQL và thiết lập quy trình CI/CD hoàn chỉnh trên GitLab.",
                         "<strong>Dựa trên dữ liệu:</strong> Phân tích kỹ lưỡng tài liệu yêu cầu nghiệp vụ (SRS), làm rõ scope sản phẩm và kết xuất các insights dữ liệu hỗ trợ quyết định vận hành."
                     ],
                     type: "tech mgmt"
@@ -673,7 +682,7 @@
                     period: "2024 - Hiện tại",
                     company: "Vai trò: Người sáng lập và Điều hành cửa hàng",
                     bullets: [
-                        "<strong>Thương hiệu điện tử:</strong> Thành lập gian hàng công nghệ chính hãng Shopee (duylongcomputer_official); tự quản trị thiết kế, tối ưu hình ảnh sản phẩm và chạy SEO/Marketing sản phẩm đạt tỉ lệ chuyển đổi cao.",
+                        "<strong>Thương hiệu điện tử:</strong> Thành lập gian hàng công nghệ chính hãng Shopee (duylongcomputer_official); tự quản trị thiết kế, tối ưu hình ảnh sản phẩm và chạy SEO/Marketing sàn đạt tỉ lệ chuyển đổi cao.",
                         "<strong>Chuỗi cung ứng (Logistics):</strong> Thiết lập quy trình đóng gói chuẩn hóa, điều phối đối soát COD dòng tiền hàng ngày, tối ưu hóa mối quan hệ với GHTK cắt giảm thời gian giao vận."
                     ],
                     type: "ops"
@@ -774,11 +783,19 @@
 
         // Router & Session Check
         function checkSessionAndRoute() {
-            const hash = window.location.hash || '#dashboard';
             const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+            let hash = window.location.hash;
 
-            if (!isLoggedIn && hash !== '#login') {
-                window.location.hash = '#login';
+            // If no hash, default based on login status
+            if (!hash) {
+                hash = isLoggedIn ? '#dashboard' : '#cv/cv-default';
+                window.location.hash = hash;
+                return;
+            }
+
+            // Public view shouldn't access dashboard
+            if (!isLoggedIn && hash === '#dashboard') {
+                window.location.hash = '#cv/cv-default';
                 return;
             }
 
@@ -804,7 +821,7 @@
                     loadCVToDOM(cv);
                     document.getElementById('cv-view').classList.remove('hidden');
                 } else {
-                    window.location.hash = '#dashboard';
+                    window.location.hash = isLoggedIn ? '#dashboard' : '#cv/cv-default';
                 }
             }
         }
@@ -1012,12 +1029,44 @@
             isEditMode = false;
             document.getElementById('cv-view').classList.remove('editing');
             
-            // Set edit buttons status
+            // Toggle admin-only buttons visibility based on login status
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
             const editBtn = document.getElementById('edit-mode-btn');
             const editTxt = document.getElementById('edit-mode-text');
-            editBtn.classList.remove('bg-brand-accent', 'text-brand-dark');
-            editBtn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
-            editTxt.innerText = "Chỉnh sửa";
+            const saveBtn = document.getElementById('save-cv-btn');
+            const dashboardBtn = document.querySelector('button[onclick="goBackToDashboard()"]');
+            const loginNavBtn = document.getElementById('login-nav-btn');
+
+            if (editBtn) editBtn.style.display = isLoggedIn ? 'inline-flex' : 'none';
+            if (saveBtn) saveBtn.style.display = isLoggedIn ? 'inline-flex' : 'none';
+            if (dashboardBtn) dashboardBtn.style.display = isLoggedIn ? 'inline-flex' : 'none';
+            if (loginNavBtn) loginNavBtn.style.display = isLoggedIn ? 'none' : 'inline-flex';
+
+            // Set edit buttons status
+            if (editBtn) {
+                editBtn.classList.remove('bg-brand-accent', 'text-brand-dark');
+                editBtn.classList.add('bg-[#1a1a24]', 'text-brand-dimText');
+            }
+            if (editTxt) editTxt.innerText = "Chỉnh sửa";
+
+            // Handle avatar clickability based on login status
+            const avatarContainer = document.getElementById('avatarContainer');
+            if (avatarContainer) {
+                const avatarInner = avatarContainer.querySelector('.aspect-\\[3\\/4\\]');
+                const avatarOverlay = avatarInner ? avatarInner.querySelector('div:last-child') : null;
+                if (avatarInner) {
+                    if (isLoggedIn) {
+                        avatarInner.classList.add('cursor-pointer');
+                        avatarInner.setAttribute('onclick', "document.getElementById('avatarInput').click()");
+                    } else {
+                        avatarInner.classList.remove('cursor-pointer');
+                        avatarInner.removeAttribute('onclick');
+                    }
+                }
+                if (avatarOverlay) {
+                    avatarOverlay.style.display = isLoggedIn ? 'flex' : 'none';
+                }
+            }
 
             // Map standard text nodes
             document.getElementById('cv-name').innerText = cv.name || '';
